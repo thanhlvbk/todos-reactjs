@@ -1,0 +1,52 @@
+{
+    "data": [{
+        "_id": "admin",
+        "username": "123456",
+        "profile": {
+            "name": "admin",
+            "first_name": "admin",
+            "last_name": "mr",
+            "image": "",
+            "gender": "Male",
+            "status": {
+            }
+        },
+        "roles": ["admin"],
+        "services": {
+            "password": {
+                "bcrypt": "$2a$10$ipdtqbluNPhD5TdtDjxX4OzqHEYGlLfPesrbX02IiVu5/88vJaHqi"
+            },
+            "resume": {
+            }
+        },
+        "emails": [{
+            "address": "admin@realestate.com",
+            "verified": true
+        }]
+    },
+    {
+        "_id": "user00",
+        "username": "654321",
+        "profile": {
+            "name": "user00",
+            "first_name": "user00",
+            "last_name": "mr",
+            "image": "",
+            "gender": "Male",
+            "status": {
+            }
+        },
+        "roles": ["user"],
+        "services": {
+            "password": {
+                "bcrypt": "$2a$10$ipdtqbluNPhD5TdtDjxX4OzqHEYGlLfPesrbX02IiVu5/88vJaHqi"
+            },
+            "resume": {
+            }
+        },
+        "emails": [{
+            "address": "user00@realestate.com",
+            "verified": true
+        }]
+    }]
+}
