@@ -1,11 +1,14 @@
 var ListTodo = ReactMeteor.createClass({
     templateName: "listTodoPage",
     getMeteorState: function() {
-        return {tasks: ListTasksCollection.find({}, {sort: {updatedAt: -1}}).fetch()}
+        return {
+            tasks: ListTasksCollection.find({}, {sort: {updatedAt: -1}}).fetch()
+        }
     },
     renderTask: function(model) {
         return <ListTask 
             key={model._id}
+            model={model}
             idTask = {model._id} 
             task={model.task}/>;
     },
@@ -57,28 +60,18 @@ var ListTask = ReactMeteor.createClass({
             }
         });
     },
-    handleInput: function(evt) {
-        evt.preventDefault();
-        // var task = ListTasksCollection.findOne(this.props.idTask);
-        // if(task){
-        //     var status = task.status;
-        //     if(status == 'active'){
-        //         $(evt.target).addClass('checked');
-        //         console.log(task._id);
-        //     }
-        //     if(status == 'completed') {
-        //         $(evt.target).css('background-color', 'red');
-        //         console.log(task._id);
-        //     }
-        // }
-        $(evt.target).toggleClass('checked');
+    handleChange: function(idTask) {        
+        this.setState({idTask: idTask,isChecked: !this.state.isChecked});
     },
     render: function() {
+        if(this.state == null)
+            this.state={ idTask: null ,isChecked: false }
+        console.log(this.state.idTask , this.state.isChecked);
         return (
             <div className="item row" style={{padding: '16px'}}>
                 <div className="col col-20 item-checkbox" >
                     <label className="checkbox" style={{right: 'auto'}}  >
-                        <input type="checkbox" onChange={this.handleInput}/>
+                        <input type="checkbox" checked={this.state.isChecked} onChange={this.handleChange.bind(this, this.props.idTask)}/>
                     </label>
                 </div>
                 <div className="col col-67" style={{whiteSpace: 'normal'}}>{this.props.task}</div>
@@ -88,7 +81,7 @@ var ListTask = ReactMeteor.createClass({
             </div>
             
         );
-    }
+    },
 });
 /**
  * HELPERS
