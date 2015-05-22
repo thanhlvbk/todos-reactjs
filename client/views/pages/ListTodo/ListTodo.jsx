@@ -62,6 +62,7 @@ var ListTask = ReactMeteor.createClass({
     },
     handleChange: function(idTask) {        
         this.setState({idTask: idTask,isChecked: !this.state.isChecked});
+        $('#'+this.props.idTask).toggleClass('checked');
     },
     render: function() {
         if(this.state == null)
@@ -74,7 +75,7 @@ var ListTask = ReactMeteor.createClass({
                         <input type="checkbox" checked={this.state.isChecked} onChange={this.handleChange.bind(this, this.props.idTask)}/>
                     </label>
                 </div>
-                <div className="col col-67" style={{whiteSpace: 'normal'}}>{this.props.task}</div>
+                <div id={this.props.idTask} className="col col-67" style={{whiteSpace: 'normal'}}>{this.props.task}</div>
                 <div className="col" style={{textAlign: 'center'}}>
                     <i className="icon ion-close" onClick={this.handleCloseTask}></i>
                 </div>
