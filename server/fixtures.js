@@ -25,6 +25,9 @@ var loadUsers = function(){
 // export
 (function(){
     var self = this;
+    self.reset = function(){
+        // Users.remove({});
+    };
     self.init = function(){
         // loadUsers();
     };

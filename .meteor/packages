@@ -21,13 +21,9 @@ mrt:nprogress
 momentjs:moment
 aldeed:autoform
 aldeed:collection2
-reactjs:react
 meteorhacks:flow-router
 meteorhacks:flow-layout
+reactjs:react
 
 particle4dev:debugx
 particle4dev:sass
-
-
-
-

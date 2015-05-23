@@ -16,7 +16,7 @@ var Login = ReactMeteor.createClass({
                     <h2 style={{textAlign: 'center'}}>Create a free account</h2>
                     <p style={{textAlign: 'center'}}>This way you will keep your tasks in your smart phone</p>
                     <button onClick={this.handleSubmit} className="button button-block button-positive login" style={{ marginTop: '30px'}}>
-                        Face Book
+                        Facebook
                     </button>
                     <div className="term" style={{textAlign: 'center'}}>
                         <p>By creating an account you agree to our Terms of Use and Privacy</p>
