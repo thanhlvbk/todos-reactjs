@@ -2,7 +2,7 @@ var Login = ReactMeteor.createClass({
     templateName: "loginPage",
     handleSubmit: function(e) {
         e.preventDefault();
-        Meteor.loginWithPassword('123456', 'Nov2013', function(err){
+        CFB.login(function (err) {
             if(err)
                 console.log(err);
             else

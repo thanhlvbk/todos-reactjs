@@ -54,16 +54,36 @@ var LogoutButton = ReactMeteor.createClass({
     }
 });
 var UserName = ReactMeteor.createClass({
+    getMeteorState: function() {
+        if(Meteor.user()){
+            return {
+                name: Meteor.user().profile.first_name + " " + Meteor.user().profile.last_name
+            };
+        }
+        return {
+            name: ''
+        };
+    },
     render: function() {
         return (
-            <h4 style={{ float:'right', color: '#fff', marginRight: '20px'}}>Le Thanh</h4>
+            <h4 style={{ float:'right', color: '#fff', marginRight: '20px'}}>{this.state.name}</h4>
         )
     }
 });
 var Avatar = ReactMeteor.createClass({
+    getMeteorState: function() {
+        if(Meteor.user()){
+            return {
+                image: Meteor.user().profile.avatar
+            };
+        }
+        return {
+            image: ''
+        };
+    },
     render: function() {
         return (
-            <img src="images/gold-dragon.jpg" style={{
+            <img src={ this.state.image } style={{
                 maxWidth: '40px',
                 maxHeight: '40px',
                 width: '100%',
