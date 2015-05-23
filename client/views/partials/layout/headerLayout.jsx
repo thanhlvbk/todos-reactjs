@@ -1,14 +1,24 @@
 var Header = ReactMeteor.createClass({
 	templateName: "header",
-    render: function() {
-        var logoutButton;
-        var userName;
-        var avatar;
+    getMeteorState: function() {
         if(Meteor.userId()){
-            logoutButton = <LogoutButton />;
-            userName = <UserName />;
-            avatar = <Avatar />
+            console.log('Login');
+            return {
+                logoutButton: <LogoutButton />,
+                userName: <UserName />,
+                avatar: <Avatar />
+            }
         }
+        if(Meteor.userId() == null){
+            console.log('Logout');
+            return {
+                logoutButton: undefined,
+                userName: undefined,
+                avatar: undefined
+            }
+        }
+    },
+    render: function() {
         return (
         	<div className="bar bar-header header" style={{height: '80px',backgroundColor: '#5E35B1', padding: '0'}}>
             	<div className="row" style={{padding: '0'}}>
@@ -16,9 +26,9 @@ var Header = ReactMeteor.createClass({
 		                <h3 style={{color: '#fff', marginTop: '5px', marginBottom: '0'}}>Todo App</h3>
 		            </div>
 		            <div className="col" style={{ marginTop: '10px'}}>
-		                {logoutButton}
-		                {userName}
-		                {avatar}
+		                {this.state.logoutButton}
+		                {this.state.userName}
+		                {this.state.avatar}
 		            </div>
 		        </div>
         	</div>
