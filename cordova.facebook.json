@@ -1,0 +1,29 @@
+{
+    "cordova": {
+        "APP_ID": "801792429874827",
+        "APP_NAME": "todos-react",
+        "secret": "abd777faec566c5e33c867b6e6c331b7"
+    },
+    "permissions": [
+        "public_profile",
+        "user_interests",
+        "user_activities",
+        "user_photos",
+        "read_friendlists",
+        "user_friends",
+        "email"
+    ],
+    "profileFields": [
+        "id",
+        "name",
+        "gender",
+        "location",
+        "email",
+        "first_name",
+        "last_name",
+        "link",
+        "username",
+        "locale",
+        "age_range"
+    ]
+}

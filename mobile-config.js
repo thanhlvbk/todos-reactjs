@@ -1,32 +1,20 @@
 App.info({
-    id          : "com.particle4dev01.todoapp",
+    id          : "com.particle4dev.todoapp",
     name        : 'Todo App',
-    description : 'Create Tasks',
+    description : '',
     author      : 'Particles4dev Team',
     email       : 'particle4dev01@gmail.com',
     website     : '',
-    version     : '1.0.0'
+    version     : '0.1.0'
 });
 
 App.accessRule('*');
 
+// Pass preferences for a particular PhoneGap/Cordova plugin
+App.configurePlugin('com.phonegap.plugins.facebookconnect', {
+    APP_ID: '801792429874827',
+    APP_NAME: 'todos-react'
+});
+
 App.setPreference("SplashScreen", "screen");
 App.setPreference("SplashScreenDelay", "7000");
-
-App.icons({
-    
-});
-
-App.launchScreens({
-    // iOS
-    // 'iphone': 'resources/splash/splash-320x480.png',
-    // 'iphone_2x': 'resources/splash/splash-320x480@2x.png',
-    // 'iphone5': 'resources/splash/splash-320x568@2x.png',
-    // 'ipad_portrait': 'resources/splash/splash-768x1024.png',
-    // 'ipad_portrait_2x': 'resources/splash/splash-768x1024@2x.png',
-    // 'ipad_landscape': 'resources/splash/splash-1024x768.png',
-    // 'ipad_landscape_2x': 'resources/splash/splash-1024x768@2x.png',
-
-    // Android
-    
-});
