@@ -2,7 +2,12 @@ var Login = ReactMeteor.createClass({
     templateName: "loginPage",
     handleSubmit: function(e) {
         e.preventDefault();
-        FlowRouter.go('listTodo');
+        Meteor.loginWithPassword('123456', 'Nov2013', function(err){
+            if(err)
+                console.log(err);
+            else
+                FlowRouter.go('listTodo');
+        });
     },
     render: function() {
         return (

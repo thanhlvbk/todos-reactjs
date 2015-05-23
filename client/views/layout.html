@@ -1,9 +1,13 @@
 <template name="applicationLayout">
-  {{> Template.dynamic template=top}}
-  {{> Template.dynamic template=main}}
+    {{> Template.dynamic template=top}}
+    <div id="login">
+        {{> Template.dynamic template=main}}
+    </div>
 </template>
 
 <template name="applicationLayout2">
   {{> Template.dynamic template=top}}
-  {{> Template.dynamic template=main}}
+  <div id="listTasks">
+    {{> Template.dynamic template=main}}
+  </div>
 </template>

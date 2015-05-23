@@ -9,7 +9,7 @@ var ListTodo = ReactMeteor.createClass({
         return <ListTask 
             key={model._id}
             model={model}
-            idTask = {model._id} 
+            idTask={model._id} 
             task={model.task}/>;
     },
     handleKeyPress: function(evt) {
@@ -33,6 +33,7 @@ var ListTodo = ReactMeteor.createClass({
         }        
     },    
     render: function() {
+        // console.log(this.state.task);
         return (
             <div className="content has-header" style={{top: '80px', marginBottom: '81px'}}>
                 <div className="list list-insert">
@@ -40,13 +41,13 @@ var ListTodo = ReactMeteor.createClass({
                         <input type="text" placeholder="Type to add new tasks" ref="task" onKeyPress={this.handleKeyPress}/>
                     </label>
                 </div>
-                <div className="list">
-                    { this.state.tasks.map(this.renderTask) }
-                </div>
+                <div className="list">{this.state.tasks.map(this.renderTask)}</div>
             </div>
         );
     }
 });
+
+// React.render(<ListTodo />, container);
 
 var ListTask = ReactMeteor.createClass({
     handleCloseTask: function(evt) {
@@ -69,15 +70,15 @@ var ListTask = ReactMeteor.createClass({
             this.state={ idTask: null ,isChecked: false }
         console.log(this.state.idTask , this.state.isChecked);
         return (
-            <div className="item row" style={{padding: '16px'}}>
+            <div className="item row" style={{padding: '5px'}}>
                 <div className="col col-20 item-checkbox" >
-                    <label className="checkbox" style={{right: 'auto'}}  >
+                    <label className="checkbox" style={{right: 'auto'}}>
                         <input type="checkbox" checked={this.state.isChecked} onChange={this.handleChange.bind(this, this.props.idTask)}/>
                     </label>
                 </div>
-                <div id={this.props.idTask} className="col col-67" style={{whiteSpace: 'normal'}}>{this.props.task}</div>
-                <div className="col" style={{textAlign: 'center'}}>
-                    <i className="icon ion-close" onClick={this.handleCloseTask}></i>
+                <div id={this.props.idTask} className="col col-67" style={{whiteSpace:'normal'}}>{this.props.task}</div>
+                <div className="col" style={{textAlign: 'center'}} onClick={this.handleCloseTask}>
+                    <i className="icon ion-close"></i>
                 </div>
             </div>
             

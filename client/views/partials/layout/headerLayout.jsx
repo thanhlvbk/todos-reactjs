@@ -1,11 +1,19 @@
 var Header = ReactMeteor.createClass({
 	templateName: "header",
     render: function() {
+        var logoutButton;
+        var userName;
+        var avatar;
+        if(Meteor.userId()){
+            logoutButton = <LogoutButton />;
+            userName = <UserName />;
+            avatar = <Avatar />
+        }
         return (
-        	<div className="bar bar-header header" style={{height: '80px',backgroundColor: '#5E35B1'}}>
-            	<div className="row">
+        	<div className="bar bar-header header" style={{height: '80px',backgroundColor: '#5E35B1', padding: '0'}}>
+            	<div className="row" style={{padding: '0'}}>
 		            <div className="col col-50" style={{ marginTop: '10px', color: '#fff'}}>
-		                <h3 style={{ color: '#fff'}}>Todo App</h3>
+		                <h3 style={{color: '#fff', marginTop: '5px', marginBottom: '0'}}>Todo App</h3>
 		            </div>
 		            <div className="col" style={{ marginTop: '10px'}}>
 		                {logoutButton}
@@ -19,14 +27,19 @@ var Header = ReactMeteor.createClass({
 });
 
 var LogoutButton = ReactMeteor.createClass({
+    handleLogout: function (evt) {
+        evt.preventDefault();
+        Meteor.logout();
+        FlowRouter.go('main');
+    },
     render: function() {
         return (
-            <i className="icon ion-android-more-vertical" style={{
+            <i className="icon ion-log-out" style={{
                 float: 'right',
                 marginTop: '5px',
                 fontSize: '30px',
                 color: '#fff',
-            }}></i>
+            }} onClick={this.handleLogout}></i>
         )
     }
 });
@@ -53,11 +66,4 @@ var Avatar = ReactMeteor.createClass({
     }
 });
 
-var logoutButton;
-var userName;
-var avatar;
-if(Meteor.userId()){
-    logoutButton = <LogoutButton />;
-    userName = <UserName />;
-    avatar = <Avatar />
-}
+
