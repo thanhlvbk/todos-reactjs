@@ -1,4 +1,8 @@
 <template name="applicationLayout">
+	{{> Template.dynamic template=layout}}
+</template>
+
+<template name="applicationLayout3">
     {{> Template.dynamic template=top}}
     <div id="login">
         {{> Template.dynamic template=main}}
@@ -6,8 +10,8 @@
 </template>
 
 <template name="applicationLayout2">
-  {{> Template.dynamic template=top}}
-  <div id="listTasks">
-    {{> Template.dynamic template=main}}
-  </div>
+  	{{> Template.dynamic template=top}}
+  	<div id="listTasks">
+    	{{> Template.dynamic template=main}}
+ 	</div>
 </template>
